@@ -1,0 +1,406 @@
+// 5.1
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    // Leer n
+    cout << "Ingrese un numero entero n: ";
+    cin >> n;
+
+    // ¿n <= 0?
+    if (n <= 0) {
+        // Mostrar error -> Fin
+        cout << "Error: El numero n debe ser mayor a 0." << endl;
+        return 0;
+    }
+
+    // Suma = 0, i = 1
+    int suma = 0;
+    int i = 1;
+
+    // ¿i <= n?
+    while (i <= n) {
+        suma = suma + i; // Suma = Suma + i
+        i = i + 1;       // i = i + 1
+    }
+
+    // Mostrar suma -> Fin
+    cout << "La suma es: " << suma << endl;
+
+    return 0;
+}
+
+// 5.3 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Pos=0, neg=0, ceros=0, C=1
+    int pos = 0;
+    int neg = 0;
+    int ceros = 0;
+    int C = 1;
+    int num;
+
+    // ¿C <= 10?
+    while (C <= 10) {
+        // Leer num
+        cout << "Ingrese el numero (" << C << " de 10): ";
+        cin >> num;
+
+        // ¿num > 0?
+        if (num > 0) {
+            pos = pos + 1;
+        } 
+        // ¿num < 0?
+        else if (num < 0) {
+            neg = neg + 1;
+        } 
+        // No es ni positivo ni negativo -> Ceros
+        else {
+            ceros = ceros + 1;
+        }
+
+        // C = C + 1
+        C = C + 1;
+    }
+
+    // Mostrar pos, neg, ceros -> Fin
+    cout << "\n--- Resultado ---" << endl;
+    cout << "Cantidad de positivos: " << pos << endl;
+    cout << "Cantidad de negativos: " << neg << endl;
+    cout << "Cantidad de ceros: " << ceros << endl;
+
+    return 0;
+}
+
+// 5.5 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double limite, base;
+
+    // Leer limite, base
+    cout << "Ingrese el limite: ";
+    cin >> limite;
+    cout << "Ingrese la base: ";
+    cin >> base;
+
+    // ¿limite <= 0 o base <= 0?
+    if (limite <= 0 || base <= 0) {
+        // Mostrar error -> Fin
+        cout << "Error: El limite y la base deben ser mayores a 0." << endl;
+        return 0;
+    }
+
+    // potencia = 1
+    double potencia = 1;
+
+    // ¿potencia <= limite?
+    while (potencia <= limite) {
+        // Mostrar potencia
+        cout << "Potencia: " << potencia << endl;
+
+        // potencia = potencia * base
+        potencia = potencia * base;
+    }
+
+    return 0;
+}
+
+// 5.7
+
+#include <iostream>
+#include <cmath> // Para usar pow() y M_PI (o constante PI)
+
+using namespace std;
+
+int main() {
+    double radio;
+    const double PI = 3.14159265358979323846;
+
+    // Leer radio
+    cout << "Ingrese el radio de la esfera: ";
+    cin >> radio;
+
+    // ¿radio <= 0?
+    if (radio <= 0) {
+        // Mostrar error -> Fin
+        cout << "error: radio debe ser positivo" << endl;
+        return 0;
+    }
+
+    // Calculo del area y volumen
+    double area = 4 * PI * pow(radio, 2);
+    double volumen = (4.0 / 3.0) * PI * pow(radio, 3);
+
+    // Mostrar area, volumen -> Fin
+    cout << "Area: " << area << endl;
+    cout << "Volumen: " << volumen << endl;
+
+    return 0;
+}
+
+// 5.9 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int num;
+
+    // Leer num
+    cout << "Ingrese un numero entero positivo: ";
+    cin >> num;
+
+    // ¿num <= 0?
+    if (num <= 0) {
+        // Mostrar error -> Fin
+        cout << "Error: El numero debe ser mayor a 0." << endl;
+        return 0;
+    }
+
+    // invertido = 0
+    int invertido = 0;
+
+    // ¿num > 0?
+    while (num > 0) {
+        int resto = num % 10;                  // resto = num mod 10
+        invertido = (invertido * 10) + resto;  // invertido = (invertido * 10) + resto
+        num = num / 10;                        // num = num div 10
+    }
+
+    // Mostrar invertido -> Fin
+    cout << "Numero invertido: " << invertido << endl;
+
+    return 0;
+}
+
+// 5.11 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    // Leer n
+    cout << "Ingrese la cantidad de numeros (n): ";
+    cin >> n;
+
+    // ¿n <= 0?
+    if (n <= 0) {
+        // Mostrar error -> Fin
+        cout << "Error: La cantidad de numeros debe ser mayor a 0." << endl;
+        return 0;
+    }
+
+    // Leer primer numero
+    double num;
+    cout << "Ingrese el numero 1: ";
+    cin >> num;
+
+    // mayor = num, menor = num, suma = num, i = 2
+    double mayor = num;
+    double menor = num;
+    double suma = num;
+    int i = 2;
+
+    // ¿i <= n?
+    while (i <= n) {
+        // Leer num
+        cout << "Ingrese el numero " << i << ": ";
+        cin >> num;
+
+        // suma = suma + num
+        suma = suma + num;
+
+        // ¿num > mayor?
+        if (num > mayor) {
+            mayor = num;
+        } 
+        // ¿num < menor?
+        else if (num < menor) {
+            menor = num;
+        }
+
+        // i = i + 1
+        i = i + 1;
+    }
+
+    // media = suma / n
+    double media = suma / n;
+
+    // Mostrar mayor, menor, media -> Fin
+    cout << "\n--- Resultados ---" << endl;
+    cout << "Mayor: " << mayor << endl;
+    cout << "Menor: " << menor << endl;
+    cout << "Media: " << media << endl;
+
+    return 0;
+}
+
+// 5.13 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // num = 100
+    int num = 100;
+
+    // ¿num <= 999?
+    while (num <= 999) {
+        // Descomposición en dígitos
+        int c = num / 100;          // c = num div 100
+        int d = (num / 10) % 10;    // d = (num div 10) mod 10
+        int u = num % 10;           // u = num mod 10
+
+        // ¿c^3 + d^3 + u^3 = num?
+        if ((c * c * c) + (d * d * d) + (u * u * u) == num) {
+            // Escribir num
+            cout << num << endl;
+        }
+
+        // num = num + 1
+        num = num + 1;
+    }
+
+    return 0;
+}
+
+// 5.15 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int tope;
+
+    // Leer tope
+    cout << "Ingrese el numero limite (tope): ";
+    cin >> tope;
+
+    // n = 2
+    int n = 2;
+
+    // ¿n <= tope?
+    while (n <= tope) {
+        // suma = 0, d = 1
+        int suma = 0;
+        int d = 1;
+
+        // ¿d <= n div 2?
+        while (d <= n / 2) {
+            // ¿n mod d = 0?
+            if (n % d == 0) {
+                suma = suma + d; // suma = suma + d
+            }
+            d = d + 1;           // d = d + 1
+        }
+
+        // ¿suma = n?
+        if (suma == n) {
+            // Escribir n
+            cout << "Numero perfecto: " << n << endl;
+        }
+
+        // n = n + 1
+        n = n + 1;
+    }
+
+    return 0;
+}
+
+// 5.17 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    // Leer n
+    cout << "Ingrese el numero de terminos (n): ";
+    cin >> n;
+
+    // suma = 0, i = 1
+    double suma = 0.0;
+    int i = 1;
+
+    // ¿i <= n?
+    while (i <= n) {
+        // suma = suma + 1 / (i * i)
+        // Se utiliza 1.0 para asegurar la division con decimales (flotante)
+        suma = suma + 1.0 / (i * i);
+        
+        // i = i + 1
+        i = i + 1;
+    }
+
+    // escribir suma -> Fin
+    cout << "La suma resultante es: " << suma << endl;
+
+    return 0;
+}
+
+// 5.19 
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    // Leer n
+    cout << "Ingrese un numero entero (n): ";
+    cin >> n;
+
+    // primo = verdadero, i = 2
+    bool primo = true;
+    int i = 2;
+
+    // ¿n < 2?
+    if (n < 2) {
+        primo = false;
+    } else {
+        // ¿i <= n / 2?
+        while (i <= n / 2 && primo) {
+            // ¿n mod i = 0?
+            if (n % i == 0) {
+                primo = false;
+            } else {
+                i = i + 1;
+            }
+        }
+    }
+
+    // ¿primo?
+    if (primo) {
+        cout << n << " es primo" << endl;
+    } else {
+        cout << n << " no es primo" << endl;
+    }
+
+    return 0;
+}
+
+// Fin 
+
+
+
